@@ -1,0 +1,8 @@
+spring:
+  application:
+    # Este nombre debe coincidir con el del archivo en el config server (ms-clientes.yml)
+    name: ms-clientes
+  cloud:
+    config:
+      # La URI de nuestro nuevo servidor de configuración
+      uri: ${CONFIG_SERVER_URL:http://localhost:8888}

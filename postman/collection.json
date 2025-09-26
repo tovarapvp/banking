@@ -1,0 +1,193 @@
+{
+  "info": {
+    "name": "Banking Microservices - Complete",
+    "_postman_id": "a1b2c3d4-e5f6-7890-1234-abcdef123456",
+    "description": "Colección completa para los microservicios de Clientes y Cuentas.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Clientes",
+      "item": [
+        {
+          "name": "Listar Clientes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/clientes?page=0&size=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "clientes"
+              ],
+              "query": [
+                {"key": "page", "value": "0"},
+                {"key": "size", "value": "10"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Obtener Cliente por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/clientes/22222222-2222-2222-2222-222222222222",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["clientes", "22222222-2222-2222-2222-222222222222"]
+            }
+          }
+        },
+        {
+          "name": "Crear Cliente",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nombre\": \"Nuevo Cliente\",\n    \"genero\": \"Masculino\",\n    \"edad\": 40,\n    \"identificacion\": \"1020304050\",\n    \"direccion\": \"Calle Falsa 123\",\n    \"telefono\": \"0999999999\",\n    \"contrasena\": \"password\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/clientes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["clientes"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar Cliente",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nombre\": \"Cliente Actualizado\",\n    \"direccion\": \"Avenida Verdadera 456\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/clientes/22222222-2222-2222-2222-222222222222",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["clientes", "22222222-2222-2222-2222-222222222222"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar Cliente",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/clientes/11111111-1111-1111-1111-111111111111",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["clientes", "11111111-1111-1111-1111-111111111111"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cuentas y Movimientos",
+      "item": [
+        {
+          "name": "Listar Cuentas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/cuentas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["cuentas"]
+            }
+          }
+        },
+        {
+          "name": "Crear Cuenta",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"numero\": \"123456\",\n    \"tipo\": \"Ahorros\",\n    \"saldoInicial\": 500,\n    \"clienteId\": \"22222222-2222-2222-2222-222222222222\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8082/cuentas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["cuentas"]
+            }
+          }
+        },
+        {
+          "name": "Registrar Movimiento",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"cuentaId\": \"aaaaaaa2-aaaa-aaaa-aaaa-aaaaaaaaaaa2\",\n    \"valor\": -50,\n    \"descripcion\": \"Retiro cajero\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8082/movimientos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["movimientos"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar Movimiento (Descripción)",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"cuentaId\": \"aaaaaaa2-aaaa-aaaa-aaaa-aaaaaaaaaaa2\",\n    \"valor\": -50,\n    \"descripcion\": \"Corrección de descripción\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8082/movimientos/bbbbbbb1-bbbb-bbbb-bbbb-bbbbbbbbbbb1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["movimientos", "bbbbbbb1-bbbb-bbbb-bbbb-bbbbbbbbbbb1"]
+            }
+          }
+        },
+        {
+          "name": "Obtener Reporte de Estado de Cuenta",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/reportes?clienteId=22222222-2222-2222-2222-222222222222&desde=2024-01-01T00:00:00Z&hasta=2024-12-31T23:59:59Z",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["reportes"],
+              "query": [
+                {"key": "clienteId", "value": "22222222-2222-2222-2222-222222222222"},
+                {"key": "desde", "value": "2024-01-01T00:00:00Z"},
+                {"key": "hasta", "value": "2024-12-31T23:59:59Z"}
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

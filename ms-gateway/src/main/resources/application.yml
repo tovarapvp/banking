@@ -1,0 +1,41 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: ms-gateway
+  cloud:
+    gateway:
+      server: #<- Cambio aquí
+        webflux: #<- Cambio aquí
+          discovery:
+            locator:
+              enabled: true
+              lower-case-service-id: true
+          routes:
+            - id: ms-clientes
+              uri: lb://ms-clientes
+              predicates:
+                - Path=/api/clientes/**
+              filters:
+                - StripPrefix=1
+            - id: ms-cuentas
+              uri: lb://ms-cuentas
+              predicates:
+                - Path=/api/cuentas/**
+              filters:
+                - StripPrefix=1
+            - id: ms-cuentas-reportes
+              uri: lb://ms-cuentas
+              predicates:
+                - Path=/api/reportes/**
+              filters:
+                - StripPrefix=1
+            
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://ms-eureka-server:8761/eureka}
+  instance:
+    prefer-ip-address: true

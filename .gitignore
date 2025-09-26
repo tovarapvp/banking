@@ -1,0 +1,17 @@
+# IDE specific files
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.factorypath
+.settings/
+
+# Build artifacts
+target/
+
+# Other
+.env
+*.class

@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: ms-gateway
+  cloud:
+    config:
+      uri: http://ms-config-server:8888

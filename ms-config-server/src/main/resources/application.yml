@@ -1,0 +1,15 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: ms-config-server
+  profiles:
+    # Usamos el perfil "native" para que lea archivos del classpath
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          # Le decimos que busque los archivos de config en la carpeta 'configs' dentro de los recursos
+          search-locations: classpath:/configs
