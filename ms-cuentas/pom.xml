@@ -90,7 +90,7 @@
       <plugin>
         <groupId>org.springframework.boot</groupId><artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
-          <mainClass>com.example.cuentas.CuentasApplication</mainClass>
+          <mainClass>com.tovarapvp.banking.cuentas.CuentasApplication</mainClass>
         </configuration>
 
       </plugin>

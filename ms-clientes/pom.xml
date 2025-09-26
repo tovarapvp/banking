@@ -67,7 +67,7 @@
       <plugin>
         <groupId>org.springframework.boot</groupId><artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
-          <mainClass>com.example.clientes.ClientesApplication</mainClass>
+          <mainClass>com.tovarapvp.banking.clientes.ClientesApplication</mainClass>
         </configuration>
 
       </plugin>
