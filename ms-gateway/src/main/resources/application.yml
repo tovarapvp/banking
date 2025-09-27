@@ -6,33 +6,36 @@ spring:
     name: ms-gateway
   cloud:
     gateway:
-      server: #<- Cambio aquí
-        webflux: #<- Cambio aquí
-          discovery:
-            locator:
-              enabled: true
-              lower-case-service-id: true
-          routes:
-            - id: ms-clientes
-              uri: lb://ms-clientes
-              predicates:
-                - Path=/api/clientes/**
-              filters:
-                - StripPrefix=1
-            - id: ms-cuentas
-              uri: lb://ms-cuentas
-              predicates:
-                - Path=/api/cuentas/**
-              filters:
-                - StripPrefix=1
-            - id: ms-cuentas-reportes
-              uri: lb://ms-cuentas
-              predicates:
-                - Path=/api/reportes/**
-              filters:
-                - StripPrefix=1
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: ms-clientes
+          uri: lb://ms-clientes
+          predicates:
+            - Path=/api/clientes/**
+          filters:
+            - StripPrefix=1
+        - id: ms-cuentas
+          uri: lb://ms-cuentas
+          predicates:
+            - Path=/api/cuentas/**
+          filters:
+            - StripPrefix=1
+        - id: ms-cuentas-reportes
+          uri: lb://ms-cuentas
+          predicates:
+            - Path=/api/reportes/**
+          filters:
+            - StripPrefix=1
+        - id: ms-cuentas-movimientos
+          uri: lb://ms-cuentas
+          predicates:
+            - Path=/api/movimientos/**
+          filters:
+            - StripPrefix=1
             
-
 eureka:
   client:
     serviceUrl:

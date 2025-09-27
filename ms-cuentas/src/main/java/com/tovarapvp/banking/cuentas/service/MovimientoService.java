@@ -60,6 +60,7 @@ public class MovimientoService {
 
     Movimiento m = mapper.toEntity(request);
     m.setSaldoResultante(nuevoSaldo);
+    m.setTipoMovimiento(request.getValor().compareTo(BigDecimal.ZERO) > 0 ? "deposito" : "retiro");
     Movimiento saved = movimientos.save(m);
 
     MovimientoCreadoPayload payload =
