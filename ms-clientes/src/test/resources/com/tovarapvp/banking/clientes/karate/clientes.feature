@@ -1,7 +1,8 @@
 Feature: Test de API para Clientes
 
+# Asume que ms-clientes corre en este puerto
   Background:
-    * url 'http://localhost:8082' # Asume que ms-clientes corre en este puerto
+    * url 'http://localhost:' + karate.properties['server.port']
 
   Scenario: Crear y obtener un cliente
 
